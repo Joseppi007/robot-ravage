@@ -173,6 +173,11 @@ class Position :
                 raise Exception(f"Position.direction cannot handle {direction}.")
     def random(width, height) :
         return Position(random.randint(0, width-1), random.randint(0, height-1))
+    def distance(self, other) :
+        """
+        Because of how the robots move, this is the Manhattan distance.
+        """
+        return (max(self.x, other.x) - min(self.x, other.x)) + (max(self.y, other.y) - min(self.y, other.y))
 
 class Target :
     def __init__(self, position) :
